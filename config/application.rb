@@ -18,5 +18,8 @@ module LiquidTest
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.autoload_paths << "#{Rails.root}/lib"
+
+    Liquid::Template.file_system = Liquid::LocalFileSystem.new(Rails.root.join('themes'))
   end
 end

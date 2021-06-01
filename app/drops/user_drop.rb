@@ -4,6 +4,6 @@ class UserDrop < Liquid::Drop
   end
 
   def name
-    @user['name']
+    @user.name
   end
 end

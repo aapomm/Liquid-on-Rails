@@ -6,15 +6,16 @@ class UserController < ApplicationController
   end
 
   def show
-    file = File.read('./app/views/user/show.liquid')
-    template = Liquid::Template.parse(file)
-    drop = UserDrop.new(@user)
-    @liquid_template = template.render('user' => drop)
+    @user = UserDrop.new(@user)
   end
 
   private
-  
+
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def template_handler
+    @template_handler ||= Liquid::TemplateHandler.new(view_context)
   end
 end
