@@ -19,12 +19,6 @@ module Liquid
       assigns['content_for_layout'] = @view.content_for(:layout) if @view.content_for?(:layout)
       assigns.merge!(local_assigns.stringify_keys)
 
-      begin
-        @view.javascript_include_tag('theme').inspect
-      rescue => error
-        raise error.inspect
-      end
-
       liquid      = Liquid::Template.parse(template)
       liquid.send(render_method, assigns, registers: registers).html_safe
     end
