@@ -14,8 +14,4 @@ class UserController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
-  def template_handler
-    @template_handler ||= Liquid::TemplateHandler.new(view_context)
-  end
 end

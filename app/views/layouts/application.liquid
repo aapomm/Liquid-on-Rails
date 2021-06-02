@@ -3,9 +3,12 @@
   <head>
     <title>LiquidTest</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    {{ 'application' | javascript_include_tag }}
+    {{ 'application' | stylesheet_link_tag }}
   </head>
 
   <body>
-    Liquid Application Layout
+    Liquid Application Layout test
+    {{ content_for_layout }}
   </body>
 </html>
